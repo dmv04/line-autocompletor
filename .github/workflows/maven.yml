@@ -26,7 +26,7 @@ jobs:
     - name: Packaging Jar
       id: packaging-jar
       shell: bash
-      run: mvn clean install
+      run: mvn --file pom.xml clean install
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Publish code coverage
