@@ -8,7 +8,6 @@ import java.util.Scanner;
 import static io.github.dmv04.util.MapSorter.sortMap;
 
 public class Autocompletor {
-
     public static String autocompletion() {
 
         // Reading data from terminal/command line
