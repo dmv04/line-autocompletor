@@ -1,4 +1,4 @@
 run:
 	mvn exec:java -Dexec.mainClass="io.github.dmv04.Autocompletor"
-report
+report:
 	mvn verify jacoco:report
