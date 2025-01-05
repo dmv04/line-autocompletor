@@ -19,10 +19,10 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
-    - name: Set up Maven
-      uses: stCarolas/setup-maven@v4.2
-      with:
-        maven-version: 3.8.2
+    - name: Set path to maven
+      id: mvn_path
+      run: |
+        echo "/opt/maven/bin" >> $GITHUB_ENV
     - name: Packaging Jar
       id: packaging-jar
       shell: bash
