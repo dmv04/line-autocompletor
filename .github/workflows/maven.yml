@@ -21,10 +21,7 @@ jobs:
         cache: maven
     - name: Set path to maven
       id: mvn_path
-      run: |
-        {
-        echo '/opt/maven/bin'
-        } >> $GITHUB_ENV
+      run: echo "opt/maven/bin" >> "$GITHUB_ENV"
     - name: Packaging Jar
       id: packaging-jar
       shell: bash
