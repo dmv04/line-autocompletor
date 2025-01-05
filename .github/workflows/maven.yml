@@ -20,7 +20,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn package
     - name: Publish code coverage
       if: ${{ github.event_name == 'push' }}
       uses: paambaati/codeclimate-action@v5.0.0
