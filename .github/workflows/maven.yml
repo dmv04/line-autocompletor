@@ -32,4 +32,4 @@ jobs:
         JACOCO_SOURCE_PATH: "${{github.workspace}}/app/src/main/java"
       with:
         coverageCommand: mvn -f app test
-        coverageLocations: ${{github.workspace}}/target/site/jacoco/jacoco.xml:jacoco
+        coverageLocations: ${{github.workspace}}app/target/site/jacoco/jacoco.xml:jacoco
