@@ -25,13 +25,11 @@ jobs:
       run: mvn -f app clean install
     - name: Build with Maven
       run: mvn -B package -f app
-    - name: Publish code coverage
-      if: ${{ github.event_name == 'push' }}
-      uses: paambaati/codeclimate-action@v5.0.0
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v9.0.0
       env:
         CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-        JACOCO_SOURCE_PATH: ${{github.workspace}}/app/src/main/java
+        JACOCO_SOURCE_PATH: "${{github.workspace}}/src/main/java"
       with:
         coverageCommand: make report
-        debug: true
-        coverageLocations: ${{github.workspace}}/app/target/site/jacoco/test/jacoco.xml:jacoco
+        coverageLocations: ${{github.workspace}}/target/site/jacoco/jacoco.xml:jacoco
