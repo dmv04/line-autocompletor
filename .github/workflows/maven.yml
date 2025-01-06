@@ -29,10 +29,8 @@ jobs:
       uses: paambaati/codeclimate-action@v8.0.0
       env:
         CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-        JACOCO_SOURCE_PATH: src/main/java ./cc-test-reporter \
-          format-coverage target/site/jacoco/jacoco.xml     \
-          --input-type jacoco
-          ./cc-test-reporter upload-coverage
+        JACOCO_SOURCE_PATH: app/src/main/java
       with:
-        coverageCommand: mvn -f app verify jacoco:report
+        debug: true
+        coverageCommand: make -C app report
         coverageLocations: ${{github.workspace}}app/target/site/jacoco/jacoco.xml:jacoco
