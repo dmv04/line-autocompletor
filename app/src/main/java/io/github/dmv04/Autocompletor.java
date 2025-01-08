@@ -1,11 +1,10 @@
 package io.github.dmv04;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 import static io.github.dmv04.util.MapSorter.sortMap;
+import static io.github.dmv04.util.ValueSelector.select;;
 
 public class Autocompletor {
     public static String autocompletion() {
@@ -35,17 +34,7 @@ public class Autocompletor {
 
         // Selecting of values satisfying the condition
 
-        var completionsList = new ArrayList<Map<String, Integer>>();
-
-        for (int i = 0; i < sortingSet.length; i++) {
-            var tempMap = new LinkedHashMap<String, Integer>();
-            for (Map.Entry<String, Integer> entry : inputSet.entrySet()) {
-                if (entry.getKey().toString().startsWith(sortingSet[i])) {
-                    tempMap.put(entry.getKey(), entry.getValue());
-                }
-            }
-            completionsList.add(tempMap);
-        }
+        var completionsList = select(sortingSet, inputSet);
 
         // Alphabet sorting and collecting to string
 
